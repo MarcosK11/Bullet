@@ -29,8 +29,6 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         direction = inputActions.Player.Move.ReadValue<Vector2>();
-
-        Debug.Log(direction);
     }
     private void FixedUpdate()
     {
