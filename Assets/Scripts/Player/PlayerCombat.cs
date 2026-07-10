@@ -5,10 +5,12 @@ public class PlayerCombat : MonoBehaviour
     [Header("Configurações")]
 
     private PlayerInputActions inputActions;
+    private WeaponHolder weaponHolder;
 
     private void Awake()
     {
         inputActions = new PlayerInputActions();
+        weaponHolder = GetComponentInChildren<WeaponHolder>();
     }
 
     private void OnEnable()
@@ -25,7 +27,7 @@ public class PlayerCombat : MonoBehaviour
     {
         if (inputActions.Player.Shoot.WasPressedThisFrame())
         {
-            Debug.Log("Bang!");
+            weaponHolder.CurrentWeapon.Shoot();
         }
     }
 }
