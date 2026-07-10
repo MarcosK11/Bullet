@@ -4,15 +4,15 @@ using UnityEngine.InputSystem;
 public class PlayerMovement : MonoBehaviour
 {
     [Header("Configurações")]
-    [SerializeField] private float velocidade = 5f;
+    [SerializeField] private float speed = 5f;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D rigidbody2D;
     private PlayerInputActions inputActions;
-    private Vector2 direcao;
+    private Vector2 direction;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        rigidbody2D = GetComponent<Rigidbody2D>();
 
         inputActions = new PlayerInputActions();
     }
@@ -28,12 +28,12 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        direcao = inputActions.Player.Move.ReadValue<Vector2>();
+        direction = inputActions.Player.Move.ReadValue<Vector2>();
 
-        Debug.Log(direcao);
+        Debug.Log(direction);
     }
     private void FixedUpdate()
     {
-        rb.linearVelocity = direcao.normalized * velocidade;
+        rigidbody2D.linearVelocity = direction.normalized * speed;
     }
 }
