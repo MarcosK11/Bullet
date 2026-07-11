@@ -5,6 +5,9 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField]
     private float speed = 2f;
 
+    [SerializeField]
+    private float stopDistance = 0.6f;
+
     private Rigidbody2D rigidbody2D;
 
     private Transform target;
@@ -24,8 +27,16 @@ public class EnemyMovement : MonoBehaviour
         if (target == null)
             return;
 
-        Vector2 direction = (target.position - transform.position).normalized;
+        Vector2 direction = target.position - transform.position;
 
-        rigidbody2D.linearVelocity = direction * speed;
+        float distance = direction.magnitude;
+
+        if (distance <= stopDistance)
+        {
+            rigidbody2D.linearVelocity = Vector2.zero;
+            return;
+        }
+
+        rigidbody2D.linearVelocity = direction.normalized * speed;
     }
 }
