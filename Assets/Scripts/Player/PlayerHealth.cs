@@ -29,8 +29,6 @@ public class PlayerHealth : Health
 
     protected override void Die()
     {
-        Debug.Log("Game Over!");
-
-        base.Die();
+        FindAnyObjectByType<GameManager>().GameOver();
     }
 }

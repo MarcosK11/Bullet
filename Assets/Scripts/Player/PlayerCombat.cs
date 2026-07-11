@@ -25,6 +25,11 @@ public class PlayerCombat : MonoBehaviour
 
     private void Update()
     {
+        GameManager gameManager = FindAnyObjectByType<GameManager>();
+
+        if (gameManager != null && gameManager.IsGameOver)
+            return;
+
         if (inputActions.Player.Shoot.WasPressedThisFrame())
         {
             weaponHolder.CurrentWeapon.Shoot();

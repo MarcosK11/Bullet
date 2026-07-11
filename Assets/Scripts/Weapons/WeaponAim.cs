@@ -5,6 +5,11 @@ public class WeaponAim : MonoBehaviour
 {
     private void Update()
     {
+        GameManager gameManager = FindAnyObjectByType<GameManager>();
+
+        if (gameManager != null && gameManager.IsGameOver)
+            return;
+
         Vector3 mousePosition = Camera.main.ScreenToWorldPoint(
             Mouse.current.position.ReadValue()
         );
