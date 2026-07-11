@@ -32,11 +32,11 @@ public class Bullet : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        EnemyHealth enemyHealth = collision.GetComponent<EnemyHealth>();
-
-        if (enemyHealth != null)
+        Health Health = collision.GetComponent<Health>();
+        if (Health != null)
         {
-            enemyHealth.TakeDamage(damage);
+            Debug.Log($"Colidiu com: {collision.name}, dano: {damage}");
+            Health.TakeDamage(damage);
         }
     }
 

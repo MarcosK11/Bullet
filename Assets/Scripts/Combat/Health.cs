@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class Health : MonoBehaviour
 {
     [SerializeField]
     private int maxHealth = 3;
@@ -23,6 +23,11 @@ public class EnemyHealth : MonoBehaviour
     }
 
     private void Die()
+    {
+        DestroyEnemy();
+    }
+
+    private void DestroyEnemy()
     {
         Destroy(gameObject);
     }
