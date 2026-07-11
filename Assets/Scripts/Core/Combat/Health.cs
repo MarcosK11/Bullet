@@ -1,5 +1,5 @@
 using UnityEngine;
-
+using System.Collections;
 public class Health : MonoBehaviour
 {
     [SerializeField]
@@ -7,13 +7,20 @@ public class Health : MonoBehaviour
 
     private int currentHealth;
 
-    private void Awake()
+    public int CurrentHealth => currentHealth;
+
+    public int MaxHealth => maxHealth;
+
+    protected virtual void Awake()
     {
         currentHealth = maxHealth;
     }
 
-    public void TakeDamage(int damage)
+    public virtual void TakeDamage(int damage)
     {
+        if (damage <= 0)
+            return;
+
         currentHealth -= damage;
 
         Debug.Log($"{gameObject.name} HP: {currentHealth}");
@@ -23,13 +30,7 @@ public class Health : MonoBehaviour
             Die();
         }
     }
-
-    private void Die()
-    {
-        DestroyEnemy();
-    }
-
-    private void DestroyEnemy()
+    protected virtual void Die()
     {
         Destroy(gameObject);
     }
