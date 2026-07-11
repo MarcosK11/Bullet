@@ -37,6 +37,7 @@ public class Bullet : MonoBehaviour
         {
             Debug.Log($"Colidiu com: {collision.name}, dano: {damage}");
             Health.TakeDamage(damage);
+            DisableBullet();
         }
     }
 

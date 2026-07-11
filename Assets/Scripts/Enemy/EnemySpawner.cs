@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -12,11 +13,32 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float spawnRadius = 10f;
 
+    [SerializeField]
+    private float spawnInterval = 2f;
+
+    [SerializeField]
+    private int maxEnemies = 20;
+
+    private int currentEnemies;
+
     private void Start()
     {
-        SpawnEnemy();
+        StartCoroutine(SpawnRoutine());
     }
+    private IEnumerator SpawnRoutine()
+    {
+        while (true)
+        {
+            int enemyCount = FindObjectsByType<EnemyMovement>().Length;
 
+            if (enemyCount < maxEnemies)
+            {
+                SpawnEnemy();
+            }
+
+            yield return new WaitForSeconds(spawnInterval);
+        }
+    }
     private void SpawnEnemy()
     {
         Vector2 spawnDirection = Random.insideUnitCircle.normalized;
@@ -31,6 +53,11 @@ public class EnemySpawner : MonoBehaviour
         );
 
         enemy.Initialize(player);
+    }
+
+    public void NotifyEnemyDestroyed()
+    {
+        currentEnemies--;
     }
 
     private void OnDrawGizmosSelected()
