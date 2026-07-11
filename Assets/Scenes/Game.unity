@@ -546,7 +546,7 @@ Transform:
   m_GameObject: {fileID: 1743949734}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.65, z: 0}
+  m_LocalPosition: {x: 0.002, y: 0.655, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -625,7 +625,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 530f1dfb75b4f174aa90b9d9fab4ca89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Pistol
-  bulletPrefab: {fileID: -969529723613940553, guid: 605ff9b148d9cba4c9cede547a37c5e8, type: 3}
+  bulletPrefab: {fileID: 2253585613094254444, guid: 605ff9b148d9cba4c9cede547a37c5e8, type: 3}
   firePoint: {fileID: 1686551195}
 --- !u!1 &1865936772
 GameObject:
@@ -642,6 +642,7 @@ GameObject:
   - component: {fileID: 1865936775}
   - component: {fileID: 1865936778}
   - component: {fileID: 1865936779}
+  - component: {fileID: 1865936780}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -836,6 +837,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::WeaponHolder
   currentWeapon: {fileID: 1743949738}
+--- !u!114 &1865936780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865936772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec014aad47fdf0d4bb75c626077ef9a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponAim
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
