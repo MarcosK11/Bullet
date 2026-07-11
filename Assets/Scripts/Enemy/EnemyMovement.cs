@@ -6,16 +6,17 @@ public class EnemyMovement : MonoBehaviour
     private float speed = 2f;
 
     private Rigidbody2D rigidbody2D;
-    private Transform target;
 
-    private void Awake()
-    {
-        rigidbody2D = GetComponent<Rigidbody2D>();
-    }
+    private Transform target;
 
     public void Initialize(Transform target)
     {
         this.target = target;
+    }
+    private void Awake()
+    {
+        rigidbody2D = GetComponent<Rigidbody2D>();
+        Initialize(target);
     }
 
     private void FixedUpdate()
