@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6288874050410831606}
   - component: {fileID: 4794723342529383269}
   - component: {fileID: 1735159275104167088}
+  - component: {fileID: 2399156190142768608}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -171,3 +172,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyMovement
   speed: 2
+--- !u!114 &2399156190142768608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4086727875081351794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e6f7d3b42fd2f443ad24ce887b3fa8f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyHealth
+  maxHealth: 3

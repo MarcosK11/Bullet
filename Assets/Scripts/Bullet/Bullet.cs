@@ -8,6 +8,9 @@ public class Bullet : MonoBehaviour
     [SerializeField]
     private float lifetime = 3f;
 
+    [SerializeField]
+    private int damage = 1;
+
     private Rigidbody2D rigidbody2D;
 
     private void Awake()
@@ -27,6 +30,14 @@ public class Bullet : MonoBehaviour
     {
         Invoke(nameof(DisableBullet), lifetime);
     }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        EnemyHealth enemyHealth = collision.GetComponent<EnemyHealth>();
 
+        if (enemyHealth != null)
+        {
+            enemyHealth.TakeDamage(damage);
+        }
+    }
 
 }
