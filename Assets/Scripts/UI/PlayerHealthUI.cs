@@ -13,9 +13,8 @@ public class PlayerHealthUI : MonoBehaviour
     [SerializeField] private float smoothSpeed = 8f;
 
     [Header("Colors")]
-    [SerializeField] private Color fullHealthColor = new Color32(255, 0, 0, 255);
-    [SerializeField] private Color lowHealthColor = new Color32(84, 20, 20, 255);
-
+    [SerializeField] private Color fullHealthColor;
+    [SerializeField] private Color lowHealthColor;
     private float targetValue;
 
     private void Awake()
