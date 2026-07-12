@@ -32,6 +32,15 @@ public class Health : MonoBehaviour
     }
     protected virtual void Die()
     {
-        Destroy(gameObject);
+        EnemyDeath enemyDeath = GetComponent<EnemyDeath>();
+
+        if (enemyDeath != null)
+        {
+            enemyDeath.Die();
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 }
