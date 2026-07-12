@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a23ff52974b8d49a56f79162307e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExperiencePickup
+  experienceValue: 1
 --- !u!1 &8663462603414814486
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +185,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8663462603414814486}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -215,3 +216,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a23ff52974b8d49a56f79162307e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExperiencePickup
+  experienceValue: 1
