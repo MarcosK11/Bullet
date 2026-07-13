@@ -32,6 +32,11 @@ public class PlayerExperience : MonoBehaviour
 
         experienceToNextLevel += 3;
 
-        Debug.Log($"LEVEL UP! Agora você é nível {currentLevel}");
+        LevelUpManager manager = FindAnyObjectByType<LevelUpManager>();
+
+        if (manager != null)
+        {
+            manager.ShowLevelUp();
+        }
     }
 }
