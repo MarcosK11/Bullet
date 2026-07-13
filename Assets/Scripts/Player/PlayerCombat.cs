@@ -6,9 +6,12 @@ public class PlayerCombat : MonoBehaviour
 
     private PlayerInputActions inputActions;
     private WeaponHolder weaponHolder;
+    private GameManager gameManager;
+
 
     private void Awake()
     {
+        gameManager = FindAnyObjectByType<GameManager>();
         inputActions = new PlayerInputActions();
         weaponHolder = GetComponentInChildren<WeaponHolder>();
     }
@@ -25,9 +28,7 @@ public class PlayerCombat : MonoBehaviour
 
     private void Update()
     {
-        GameManager gameManager = FindAnyObjectByType<GameManager>();
-
-        if (gameManager != null && gameManager.IsGameOver)
+        if (gameManager.IsPlayerInputBlocked)
             return;
 
         if (inputActions.Player.Shoot.WasPressedThisFrame())

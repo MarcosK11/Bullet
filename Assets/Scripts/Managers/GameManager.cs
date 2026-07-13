@@ -7,9 +7,17 @@ public class GameManager : MonoBehaviour
     [SerializeField]
     private GameObject gameOverPanel;
 
+    public bool IsPlayerInputBlocked => IsGameOver || IsLevelingUp;
+    public bool IsLevelingUp { get; private set; }
     public bool IsGameOver { get; private set; }
 
     private PlayerInputActions inputActions;
+
+    public void SetLevelingUp(bool value)
+    {
+        IsLevelingUp = value;
+    }
+
     private void Awake()
     {
         Time.timeScale = 1f;

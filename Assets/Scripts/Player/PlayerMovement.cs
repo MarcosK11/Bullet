@@ -9,9 +9,11 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rigidbody2D;
     private PlayerInputActions inputActions;
     private Vector2 direction;
-
+    private GameManager gameManager;
     private void Awake()
     {
+        gameManager = FindAnyObjectByType<GameManager>();
+
         rigidbody2D = GetComponent<Rigidbody2D>();
 
         inputActions = new PlayerInputActions();
@@ -28,6 +30,9 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
+        if (gameManager != null && gameManager.IsPlayerInputBlocked)
+            return;
+
         direction = inputActions.Player.Move.ReadValue<Vector2>();
     }
     private void FixedUpdate()
