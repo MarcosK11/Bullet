@@ -216,4 +216,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7a23ff52974b8d49a56f79162307e38, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ExperiencePickup
-  experienceValue: 1
+  experienceValue: 5

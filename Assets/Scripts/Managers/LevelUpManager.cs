@@ -7,6 +7,12 @@ public class LevelUpManager : MonoBehaviour
 
     private GameManager gameManager;
 
+    [SerializeField]
+    private CardData[] availableCards;
+
+    [SerializeField]
+    private CardUI[] cardUIs;
+
     private void Awake()
     {
         gameManager = FindAnyObjectByType<GameManager>();
@@ -19,6 +25,11 @@ public class LevelUpManager : MonoBehaviour
         gameManager.SetLevelingUp(true);
 
         levelUpPanel.SetActive(true);
+
+        for (int i = 0; i < cardUIs.Length; i++)
+        {
+            cardUIs[i].Setup(availableCards[i]);
+        }
     }
 
     public void CloseLevelUp()

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80fba5d1d39b0ed4eafeafedc937b4e9, type: 3}
+  m_Name: Owl
+  m_EditorClassIdentifier: Assembly-CSharp::CardData
+  companionId: 0
+  cardName: Coruja
+  description: TESTE
+  artwork: {fileID: -1788626132936788117, guid: 544fa43cff3284c4981f032f130cedfe, type: 3}
+  type: 0
+  rarity: 0
+  prefab: {fileID: 0}
