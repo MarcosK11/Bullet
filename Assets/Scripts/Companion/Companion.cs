@@ -8,19 +8,29 @@ public class Companion : MonoBehaviour
     [SerializeField] protected float idleDistance = 0.15f;
     [SerializeField] private float waitTime = 1f;
     [SerializeField] protected float detectionRadius = 6f;
+    [SerializeField] private float searchInterval = 0.25f;
 
+    private float searchTimer;
     private float timer;
     private bool waiting;
 
     protected Transform player;
 
     private Vector3 patrolPoint;
+    private CompanionState state;
+    private Transform target;
 
     public virtual void Initialize(Transform player)
     {
         this.player = player;
-
+        state = CompanionState.Patrol;
         ChooseNewPatrolPoint();
+    }
+
+    public enum CompanionState
+    {
+        Patrol,
+        Chase
     }
 
     private void Update()
@@ -39,7 +49,23 @@ public class Companion : MonoBehaviour
 
             return;
         }
-        Patrol();
+        switch (state)
+        {
+            case CompanionState.Patrol:
+                searchTimer -= Time.deltaTime;
+
+                if (searchTimer <= 0f)
+                {
+                    searchTimer = searchInterval;
+                    FindTarget();
+                }
+                Patrol();
+                break;
+
+            case CompanionState.Chase:
+                Chase();
+                break;
+        }
     }
 
     private void Patrol()
@@ -64,5 +90,43 @@ public class Companion : MonoBehaviour
             randomOffset.x,
             randomOffset.y,
             0f);
+    }
+    private void FindTarget()
+    {
+        Enemy[] enemies = FindObjectsByType<Enemy>();
+
+        float closestDistance = detectionRadius;
+        target = null;
+
+        foreach (Enemy enemy in enemies)
+        {
+            float distance = Vector2.Distance(
+                transform.position,
+                enemy.transform.position);
+
+            if (distance < closestDistance)
+            {
+                closestDistance = distance;
+                target = enemy.transform;
+            }
+        }
+
+        if (target != null)
+        {
+            state = CompanionState.Chase;
+        }
+    }
+    private void Chase()
+    {
+        if (target == null)
+        {
+            state = CompanionState.Patrol;
+            return;
+        }
+
+        transform.position = Vector3.MoveTowards(
+            transform.position,
+            target.position,
+            moveSpeed * Time.deltaTime);
     }
 }

@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2399156190142768608}
   - component: {fileID: 5609735537414260885}
   - component: {fileID: 5359641833420630140}
+  - component: {fileID: -7796897245808933513}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -215,3 +216,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyDeath
   experiencePrefab: {fileID: 8392699564059667520, guid: b77a8e3dc2e71a2499e0e6a6d165b745, type: 3}
+--- !u!114 &-7796897245808933513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4086727875081351794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56aa05e4815a9d24fa5912dd9a7f9232, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
