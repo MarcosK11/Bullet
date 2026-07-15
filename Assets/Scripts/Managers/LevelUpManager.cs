@@ -13,6 +13,9 @@ public class LevelUpManager : MonoBehaviour
     [SerializeField]
     private CardUI[] cardUIs;
 
+    [SerializeField]
+    private PlayerCompanionManager companionManager;
+
     private void Awake()
     {
         gameManager = FindAnyObjectByType<GameManager>();
@@ -39,6 +42,18 @@ public class LevelUpManager : MonoBehaviour
         gameManager.SetLevelingUp(false);
 
         Time.timeScale = 1f;
+    }
+
+    public void ChooseCard(CardUI cardUI)
+    {
+        CardData selectedCard = cardUI.CardData;
+
+        if (selectedCard.type == CardType.Companion)
+        {
+            companionManager.AddCompanion(selectedCard);
+        }
+
+        CloseLevelUp();
     }
 
 }

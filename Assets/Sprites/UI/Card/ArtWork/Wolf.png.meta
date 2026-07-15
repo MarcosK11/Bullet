@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: bbbb055d5a610074186d6e04bc4076d9
+guid: a536bebdc8e98b44aba49342a56bef20
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4400489805210514472
-    second: Wolf (3)_0
+      213: -458185587419916677
+    second: Wolf_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Wolf (3)_0
+      name: Wolf_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1065
-        height: 1477
+        width: 1024
+        height: 1531
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 824fc4db92ea11d30800000000000000
-      internalID: 4400489805210514472
+      spriteID: b76d1a4c2a234a9f0800000000000000
+      internalID: -458185587419916677
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Wolf (3)_0: 4400489805210514472
+      Wolf_0: -458185587419916677
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

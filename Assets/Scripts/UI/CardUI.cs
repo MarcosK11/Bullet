@@ -26,4 +26,14 @@ public class CardUI : MonoBehaviour
 
         rarityText.text = data.rarity.ToString();
     }
+
+    public void Select()
+    {
+        LevelUpManager manager = FindAnyObjectByType<LevelUpManager>();
+
+        if (manager != null)
+        {
+            manager.ChooseCard(this);
+        }
+    }
 }
