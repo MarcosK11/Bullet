@@ -15,7 +15,7 @@ MonoBehaviour:
   companionId: 0
   cardName: Lobo
   description: TESTE
-  artwork: {fileID: 4400489805210514472, guid: bbbb055d5a610074186d6e04bc4076d9, type: 3}
+  artwork: {fileID: -458185587419916677, guid: a536bebdc8e98b44aba49342a56bef20, type: 3}
   type: 0
   rarity: 0
   prefab: {fileID: 8137036404941832622, guid: ab578e777db5e964b96668af4f4137f2, type: 3}

@@ -4,6 +4,7 @@ using UnityEngine;
 public class PlayerCompanionManager : MonoBehaviour
 {
     private readonly List<Companion> companions = new();
+    public IReadOnlyList<Companion> Companions => companions;
 
     [SerializeField]
     private int maxCompanions = 6;

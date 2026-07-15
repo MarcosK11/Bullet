@@ -18,4 +18,4 @@ MonoBehaviour:
   artwork: {fileID: -1788626132936788117, guid: 544fa43cff3284c4981f032f130cedfe, type: 3}
   type: 0
   rarity: 0
-  prefab: {fileID: 0}
+  prefab: {fileID: 3626626053922490011, guid: 939c9e8e4038f524a9fe09c807648e28, type: 3}

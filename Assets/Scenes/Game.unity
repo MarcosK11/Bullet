@@ -2529,9 +2529,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1457213684}
-        m_TargetAssemblyTypeName: LevelUpManager, Assembly-CSharp
-        m_MethodName: CloseLevelUp
+      - m_Target: {fileID: 1177647960}
+        m_TargetAssemblyTypeName: CardUI, Assembly-CSharp
+        m_MethodName: Select
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2986,9 +2986,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1457213684}
-        m_TargetAssemblyTypeName: LevelUpManager, Assembly-CSharp
-        m_MethodName: CloseLevelUp
+      - m_Target: {fileID: 1011700309}
+        m_TargetAssemblyTypeName: CardUI, Assembly-CSharp
+        m_MethodName: Select
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3665,9 +3665,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1457213684}
-        m_TargetAssemblyTypeName: LevelUpManager, Assembly-CSharp
-        m_MethodName: CloseLevelUp
+      - m_Target: {fileID: 1177647960}
+        m_TargetAssemblyTypeName: CardUI, Assembly-CSharp
+        m_MethodName: Select
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4185,6 +4185,7 @@ MonoBehaviour:
   - {fileID: 1011700309}
   - {fileID: 1177647960}
   - {fileID: 915202318}
+  companionManager: {fileID: 1865936784}
 --- !u!1 &1468649262
 GameObject:
   m_ObjectHideFlags: 0
@@ -5153,6 +5154,7 @@ GameObject:
   - component: {fileID: 1865936780}
   - component: {fileID: 1865936781}
   - component: {fileID: 1865936782}
+  - component: {fileID: 1865936784}
   m_Layer: 6
   m_Name: Player
   m_TagString: Player
@@ -5392,6 +5394,19 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1865936784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865936772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7fe15a60a0b6af41baa4d6dd67034bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerCompanionManager
+  maxCompanions: 1
 --- !u!1 &1943071894
 GameObject:
   m_ObjectHideFlags: 0
