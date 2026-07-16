@@ -31,6 +31,7 @@ public class LevelUpManager : MonoBehaviour
 
         for (int i = 0; i < cardUIs.Length; i++)
         {
+            Debug.Log($"Carta {i}: {availableCards[i].cardName}");
             cardUIs[i].Setup(availableCards[i]);
         }
     }

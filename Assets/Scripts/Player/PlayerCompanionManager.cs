@@ -22,7 +22,6 @@ public class PlayerCompanionManager : MonoBehaviour
             Debug.LogWarning($"{cardData.cardName} não possui prefab.");
             return false;
         }
-
         GameObject companionObject = Instantiate(
             cardData.Prefab,
             transform.position,
