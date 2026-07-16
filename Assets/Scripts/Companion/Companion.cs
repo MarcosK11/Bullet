@@ -8,6 +8,7 @@ public class Companion : MonoBehaviour
     [SerializeField] private float waitTime = 1f;
     [SerializeField] private float searchInterval = 0.25f;
 
+    private float attackTimer;
     private float searchTimer;
     private float timer;
     private bool waiting;
@@ -125,9 +126,36 @@ public class Companion : MonoBehaviour
             return;
         }
 
-        transform.position = Vector3.MoveTowards(
+        float distance = Vector2.Distance(
             transform.position,
-            target.position,
-            cardData.MoveSpeed * Time.deltaTime);
+            target.position);
+
+        if (distance > cardData.AttackRange)
+        {
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                target.position,
+                cardData.MoveSpeed * Time.deltaTime);
+        }
+        else
+        {
+            TryAttack();
+        }
     }
+private void TryAttack()
+{
+    attackTimer -= Time.deltaTime;
+
+    if (attackTimer > 0f)
+        return;
+
+    Health health = target.GetComponent<Health>();
+
+    if (health != null)
+    {
+        health.TakeDamage(cardData.Damage);
+    }
+
+    attackTimer = cardData.AttackCooldown;
+}
 }
