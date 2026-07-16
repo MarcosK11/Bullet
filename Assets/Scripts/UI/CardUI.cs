@@ -22,9 +22,9 @@ public class CardUI : MonoBehaviour
 
         nameText.text = data.cardName;
 
-        descriptionText.text = data.description;
+        descriptionText.text = data.Description;
 
-        rarityText.text = data.rarity.ToString();
+        rarityText.text = data.Rarity.ToString();
     }
 
     public void Select()

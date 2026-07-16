@@ -48,7 +48,7 @@ public class LevelUpManager : MonoBehaviour
     {
         CardData selectedCard = cardUI.CardData;
 
-        if (selectedCard.type == CardType.Companion)
+        if (selectedCard.Type == CardType.Companion)
         {
             companionManager.AddCompanion(selectedCard);
         }

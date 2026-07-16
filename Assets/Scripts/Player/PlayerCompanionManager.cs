@@ -17,14 +17,14 @@ public class PlayerCompanionManager : MonoBehaviour
             return false;
         }
 
-        if (cardData.prefab == null)
+        if (cardData.Prefab == null)
         {
             Debug.LogWarning($"{cardData.cardName} não possui prefab.");
             return false;
         }
 
         GameObject companionObject = Instantiate(
-            cardData.prefab,
+            cardData.Prefab,
             transform.position,
             Quaternion.identity);
 
@@ -32,12 +32,12 @@ public class PlayerCompanionManager : MonoBehaviour
 
         if (companion == null)
         {
-            Debug.LogError($"{cardData.prefab.name} não possui o script Companion.");
+            Debug.LogError($"{cardData.Prefab.name} não possui o script Companion.");
             Destroy(companionObject);
             return false;
         }
 
-        companion.Initialize(transform);
+        companion.Initialize(transform, cardData);
 
         companions.Add(companion);
 

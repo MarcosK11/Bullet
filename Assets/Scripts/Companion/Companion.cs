@@ -3,11 +3,9 @@ using UnityEngine;
 public class Companion : MonoBehaviour
 {
     [Header("Movement")]
-    [SerializeField] protected float moveSpeed = 3f;
     [SerializeField] protected float patrolRadius = 2.5f;
     [SerializeField] protected float idleDistance = 0.15f;
     [SerializeField] private float waitTime = 1f;
-    [SerializeField] protected float detectionRadius = 6f;
     [SerializeField] private float searchInterval = 0.25f;
 
     private float searchTimer;
@@ -15,14 +13,17 @@ public class Companion : MonoBehaviour
     private bool waiting;
 
     protected Transform player;
+    protected CardData cardData;
 
     private Vector3 patrolPoint;
     private CompanionState state;
     private Transform target;
 
-    public virtual void Initialize(Transform player)
+    public virtual void Initialize(Transform player, CardData cardData)
     {
         this.player = player;
+        this.cardData = cardData;
+
         state = CompanionState.Patrol;
         ChooseNewPatrolPoint();
     }
@@ -73,7 +74,7 @@ public class Companion : MonoBehaviour
         transform.position = Vector3.MoveTowards(
             transform.position,
             patrolPoint,
-            moveSpeed * Time.deltaTime);
+            cardData.MoveSpeed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, patrolPoint) <= idleDistance && !waiting)
         {
@@ -95,7 +96,7 @@ public class Companion : MonoBehaviour
     {
         Enemy[] enemies = FindObjectsByType<Enemy>();
 
-        float closestDistance = detectionRadius;
+        float closestDistance = cardData.DetectionRadius;
         target = null;
 
         foreach (Enemy enemy in enemies)
@@ -127,6 +128,6 @@ public class Companion : MonoBehaviour
         transform.position = Vector3.MoveTowards(
             transform.position,
             target.position,
-            moveSpeed * Time.deltaTime);
+            cardData.MoveSpeed * Time.deltaTime);
     }
 }
