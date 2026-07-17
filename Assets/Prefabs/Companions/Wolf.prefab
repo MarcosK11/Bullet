@@ -185,3 +185,4 @@ MonoBehaviour:
   waitTime: 0.1
   searchInterval: 0.25
   companionSeparation: 1.2
+  spriteTransform: {fileID: 2850436193004046280}

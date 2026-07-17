@@ -8,6 +8,8 @@ public class Companion : MonoBehaviour
     [SerializeField] private float waitTime = 1f;
     [SerializeField] private float searchInterval = 0.25f;
     [SerializeField] private float companionSeparation = 1.2f;
+    [SerializeField] private Transform spriteTransform;
+    [SerializeField] private float rotationSpeed = 540f;
 
     private float attackTimer;
     private float searchTimer;
@@ -21,6 +23,7 @@ public class Companion : MonoBehaviour
     private CompanionState state;
     private Transform target;
     private PlayerCompanionManager companionManager;
+
     public virtual void Initialize(Transform player, CardData cardData)
     {
         this.player = player;
@@ -75,6 +78,8 @@ public class Companion : MonoBehaviour
 
     private void Patrol()
     {
+        RotateSprite(patrolPoint);
+
         transform.position = Vector3.MoveTowards(
             transform.position,
             patrolPoint,
@@ -152,6 +157,8 @@ public class Companion : MonoBehaviour
 
         if (distance > cardData.AttackRange)
         {
+            RotateSprite(target.position);
+
             transform.position = Vector3.MoveTowards(
                 transform.position,
                 target.position,
@@ -162,7 +169,7 @@ public class Companion : MonoBehaviour
             TryAttack();
         }
     }
-private void TryAttack()
+    private void TryAttack()
 {
     attackTimer -= Time.deltaTime;
 
@@ -190,5 +197,22 @@ private void TryAttack()
         }
 
         return true;
+    }
+
+    private void RotateSprite(Vector3 targetPosition)
+    {
+        Vector2 direction = targetPosition - transform.position;
+
+        if (direction.sqrMagnitude < 0.001f)
+            return;
+
+        float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+
+        Quaternion targetRotation = Quaternion.Euler(0f, 0f, targetAngle);
+
+        transform.rotation = Quaternion.RotateTowards(
+            transform.rotation,
+            targetRotation,
+            rotationSpeed * Time.deltaTime);
     }
 }
