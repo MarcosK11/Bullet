@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: Owl
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   companionId: 0
-  cardName: Coruja
-  description: TESTE
   artwork: {fileID: -1788626132936788117, guid: 544fa43cff3284c4981f032f130cedfe, type: 3}
-  type: 0
-  rarity: 0
   prefab: {fileID: 3626626053922490011, guid: 939c9e8e4038f524a9fe09c807648e28, type: 3}
+  damage: 3
+  attackCooldown: 2
+  attackRange: 5
+  moveSpeed: 10
+  detectionRadius: 10
+  cardName: Coruja
+  rarity: 0
+  type: 0
+  description: TESTE

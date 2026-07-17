@@ -180,3 +180,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bac289992d1fcf4d8284c46d731829d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Companion
+  patrolRadius: 8
+  idleDistance: 0.15
+  waitTime: 1
+  searchInterval: 0.25
+  companionSeparation: 1.2

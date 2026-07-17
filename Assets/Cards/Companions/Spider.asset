@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: Spider
   m_EditorClassIdentifier: Assembly-CSharp::CardData
   companionId: 0
-  cardName: Aranha
-  description: TESTE
   artwork: {fileID: -3438905571476058607, guid: f9c801189bd47b240b0ac409c8388977, type: 3}
-  type: 0
-  rarity: 1
   prefab: {fileID: 2865867658626519855, guid: 238293a9efad9934d98b889118e89c2d, type: 3}
+  damage: 5
+  attackCooldown: 3
+  attackRange: 5
+  moveSpeed: 5
+  detectionRadius: 8
+  cardName: Aranha
+  rarity: 1
+  type: 0
+  description: TESTE

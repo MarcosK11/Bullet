@@ -7,6 +7,7 @@ public class Companion : MonoBehaviour
     [SerializeField] protected float idleDistance = 0.15f;
     [SerializeField] private float waitTime = 1f;
     [SerializeField] private float searchInterval = 0.25f;
+    [SerializeField] private float companionSeparation = 1.2f;
 
     private float attackTimer;
     private float searchTimer;
@@ -19,16 +20,18 @@ public class Companion : MonoBehaviour
     private Vector3 patrolPoint;
     private CompanionState state;
     private Transform target;
-
+    private PlayerCompanionManager companionManager;
     public virtual void Initialize(Transform player, CardData cardData)
     {
         this.player = player;
         this.cardData = cardData;
 
+        companionManager = player.GetComponent<PlayerCompanionManager>();
+
         state = CompanionState.Patrol;
+
         ChooseNewPatrolPoint();
     }
-
     public enum CompanionState
     {
         Patrol,
@@ -86,12 +89,29 @@ public class Companion : MonoBehaviour
 
     private void ChooseNewPatrolPoint()
     {
-        Vector2 randomOffset = Random.insideUnitCircle.normalized *
-                               Random.Range(1f, patrolRadius);
-        patrolPoint = player.position + new Vector3(
-            randomOffset.x,
-            randomOffset.y,
-            0f);
+        const int maxAttempts = 10;
+
+        for (int i = 0; i < maxAttempts; i++)
+        {
+            Vector2 randomOffset = Random.insideUnitCircle.normalized *
+                                   Random.Range(1f, patrolRadius);
+
+            Vector3 point = player.position + new Vector3(
+                randomOffset.x,
+                randomOffset.y,
+                0f);
+
+            if (IsPatrolPointValid(point))
+            {
+                patrolPoint = point;
+                return;
+            }
+        }
+
+        // Caso não encontre um ponto livre
+        Vector2 fallback = Random.insideUnitCircle * patrolRadius;
+
+        patrolPoint = player.position + (Vector3)fallback;
     }
     private void FindTarget()
     {
@@ -158,4 +178,17 @@ private void TryAttack()
 
     attackTimer = cardData.AttackCooldown;
 }
+    private bool IsPatrolPointValid(Vector3 point)
+    {
+        foreach (Companion companion in companionManager.Companions)
+        {
+            if (companion == this)
+                continue;
+
+            if (Vector2.Distance(point, companion.transform.position) < companionSeparation)
+                return false;
+        }
+
+        return true;
+    }
 }

@@ -2466,7 +2466,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1353.3334, y: -350}
+  m_AnchoredPosition: {x: 1228.75, y: -543.3751}
   m_SizeDelta: {x: 493.33334, y: 700}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &915202318
@@ -2529,7 +2529,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1177647960}
+      - m_Target: {fileID: 915202318}
         m_TargetAssemblyTypeName: CardUI, Assembly-CSharp
         m_MethodName: Select
         m_Mode: 1
